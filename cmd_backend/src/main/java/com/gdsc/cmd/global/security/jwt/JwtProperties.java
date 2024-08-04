@@ -11,7 +11,7 @@ import java.util.Base64;
 @Configuration
 public class JwtProperties { // 환경 변수 값을 필드로 구현
 
-    @Value("${JWT_SECRET_KEY}")
+    @Value("${jwt.secret-key}")
     private String secretKey;
 
     @Value("${jwt.accessExp}")
