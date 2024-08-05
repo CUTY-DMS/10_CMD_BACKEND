@@ -28,6 +28,8 @@ public class LogoutService {
                 accountId(user.get().getAccountId()).
                 password(user.get().getPassword()).
                 email(user.get().getEmail()).
+                phonenumber(user.get().getPhonenumber()).
+                major(user.get().getMajor()).
                 deviceToken(null).
                 build());
 

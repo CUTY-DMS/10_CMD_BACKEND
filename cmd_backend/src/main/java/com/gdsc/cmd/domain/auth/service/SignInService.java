@@ -31,6 +31,8 @@ public class SignInService {
                 accountId(user.getAccountId()).
                 password(user.getPassword()).
                 email(user.getEmail()).
+                phonenumber(user.getPhonenumber()).
+                major(user.getMajor()).
                 deviceToken(request.getDeviceToken()).
                 build();
 
