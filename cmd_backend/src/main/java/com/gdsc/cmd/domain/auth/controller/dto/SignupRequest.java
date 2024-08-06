@@ -7,6 +7,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import javax.validation.constraints.Digits;
 
 @Builder
 @Getter
@@ -18,17 +19,19 @@ public class SignupRequest {
 
     @NotBlank(message = "password는 Null, 공백, 띄어쓰기를 허용하지 않습니다.")
     @Pattern(regexp = "(?=.*[a-z])(?=.*[0-9])(?=.*[!#$%&'()*+,./:;<=>?@＼^_`{|}~])[a-zA-Z0-9!#$%&'()*+,./:;" +
-            "<=>?@＼^_`{|}~]{8,30}$",
+            "<=>?@＼^_`{|}~]{8,60}$",
             message = "password는 소문자, 숫자, 특수문자가 포함되어야 합니다.")
     private String password;
 
-    @NotNull
-    @NotBlank(message = "email은 Null, 공백, 띄어쓰기를 허용하지 않습니다.")
+    @NotNull(message = "email은 Null을 허용하지 않습니다.")
+    @NotBlank(message = "email은 공백, 띄어쓰기를 허용하지 않습니다.")
     private String email;
 
-    @NotBlank(message = "phonenumber는 Null, 공백, 띄어쓰기를 허용하지 않습니다.")
+    @NotNull(message = "phonenumber는 Null을 허용하지 않습니다.")
+    @Digits(integer = 15, fraction = 0, message = "phonenumber는 최대 15자리 숫자여야 합니다.")
     private Long phonenumber;
 
     @NotNull(message = "major는 Null을 허용하지 않습니다.")
+    @NotBlank(message = "major는 공백, 띄어쓰기를 허용하지 않습니다.")
     private String major;
 }

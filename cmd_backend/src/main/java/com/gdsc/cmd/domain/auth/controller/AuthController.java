@@ -7,8 +7,11 @@ import com.gdsc.cmd.domain.auth.service.SignUpService;
 import com.gdsc.cmd.global.security.TokenResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/auth")
@@ -21,9 +24,11 @@ public class AuthController {
         return signInService.execute(request);
 
     }
-    @PostMapping("/signup") // 회원 가입
-    public TokenResponse signUp(SignupRequest request){
-        return signUpService.execute(request);
+    @PostMapping("/signup")
+    public String signup(@Valid @RequestBody SignupRequest signupRequest) {
+        signUpService.execute(signupRequest);
+
+        return "User signed up successfully";
     }
 
 }

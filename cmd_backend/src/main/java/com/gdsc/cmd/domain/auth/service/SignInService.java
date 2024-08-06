@@ -33,7 +33,6 @@ public class SignInService {
                 email(user.getEmail()).
                 phonenumber(user.getPhonenumber()).
                 major(user.getMajor()).
-                deviceToken(request.getDeviceToken()).
                 build();
 
         if(!passwordEncoder.matches(request.getPassword(), user.getPassword())){

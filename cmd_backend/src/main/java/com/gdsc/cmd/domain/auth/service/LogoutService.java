@@ -30,7 +30,6 @@ public class LogoutService {
                 email(user.get().getEmail()).
                 phonenumber(user.get().getPhonenumber()).
                 major(user.get().getMajor()).
-                deviceToken(null).
                 build());
 
         RefreshToken refreshToken = refreshTokenRepository.findById(user.get().getAccountId())
