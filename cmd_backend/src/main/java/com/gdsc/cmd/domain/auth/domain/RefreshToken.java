@@ -4,7 +4,7 @@ package com.gdsc.cmd.domain.auth.domain;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
-
+import org.springframework.data.redis.core.TimeToLive;
 
 
 @Getter
@@ -18,6 +18,7 @@ public class RefreshToken {
 
     private String refreshToken;
 
+    @TimeToLive
     private Long expiration;
 
     public RefreshToken updateExpiration(Long expiration){

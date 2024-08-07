@@ -25,7 +25,7 @@ public class JwtReissueUtil { // 토큰 관리자
     private final JwtProperties jwtProperties;
     private final AuthDetailsService authDetailsService;
 
-    public TokenResponse reissue(String refreshToken) { // 토큰 재발행(리프레시 토큰)
+    public TokenResponse reissue(String refreshToken) { // 액세스 토큰 재발행
 
         if(!isRefreshToken(refreshToken)) { // token이 refreshToken인지 확인
             throw new JwtException("not refreshToken");
