@@ -2,14 +2,12 @@ package com.gdsc.cmd.domain.auth.controller;
 
 import com.gdsc.cmd.domain.auth.controller.dto.SigninRequest;
 import com.gdsc.cmd.domain.auth.controller.dto.SignupRequest;
-import com.gdsc.cmd.domain.auth.service.SignInService;
+import com.gdsc.cmd.domain.auth.service.LoginService;
+import com.gdsc.cmd.domain.auth.service.ReissueService;
 import com.gdsc.cmd.domain.auth.service.SignUpService;
 import com.gdsc.cmd.global.security.TokenResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -17,8 +15,9 @@ import javax.validation.Valid;
 @RequestMapping("/auth")
 @RequiredArgsConstructor
 public class AuthController {
-    private final SignInService signInService;
+    private final LoginService signInService;
     private final SignUpService signUpService;
+    private final ReissueService reissueService;
     @PostMapping("/signin") // 로그인
     public TokenResponse signIn(SigninRequest request){
         return signInService.execute(request);
@@ -30,5 +29,10 @@ public class AuthController {
 
         return "User signed up successfully";
     }
+    @PostMapping("/reissue")
+    public TokenResponse reissue(@RequestHeader(name = "AUTHORIZATION_HEADER") String refreshToken) {
+        return reissueService.reissue(refreshToken);
+    }
+
 
 }

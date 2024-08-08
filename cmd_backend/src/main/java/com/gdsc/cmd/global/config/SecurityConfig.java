@@ -1,4 +1,4 @@
-package com.gdsc.cmd.global.security;
+package com.gdsc.cmd.global.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

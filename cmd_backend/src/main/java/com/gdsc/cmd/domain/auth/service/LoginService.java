@@ -1,5 +1,6 @@
 package com.gdsc.cmd.domain.auth.service;
 
+
 import com.gdsc.cmd.domain.auth.controller.dto.SigninRequest;
 import com.gdsc.cmd.domain.user.domain.User;
 import com.gdsc.cmd.domain.user.domain.repository.UserRepository;
@@ -9,13 +10,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 
 
 @Service
 @RequiredArgsConstructor
-public class SignInService {
+public class LoginService {
 
     private final UserRepository userRepository;
     private final JwtTokenProvider jwtTokenProvider;
@@ -27,13 +27,7 @@ public class SignInService {
         User user = userRepository.findByAccountId(request.getAccountId())
                 .orElseThrow(() -> new UsernameNotFoundException(""));
 
-        user = User.builder().
-                accountId(user.getAccountId()).
-                password(user.getPassword()).
-                email(user.getEmail()).
-                phonenumber(user.getPhonenumber()).
-                major(user.getMajor()).
-                build();
+
 
         if(!passwordEncoder.matches(request.getPassword(), user.getPassword())){
             throw new RuntimeException();
