@@ -35,12 +35,18 @@ public class User {
     @Column(columnDefinition = "VARCHAR(100)")
     private String email;
 
+    private int classNumber;
+
+    private int birth;
+
     @Builder
-    public User(Long phonenumber, String accountId, String password, String major, String email) {
-        this.phonenumber = phonenumber;
+    public User(String accountId, String password, Long phonenumber, String major, String email, int classNumber, int birth) {
         this.accountId = accountId;
         this.password = password;
+        this.phonenumber = phonenumber;
         this.major = major;
         this.email = email;
+        this.classNumber = classNumber;
+        this.birth = birth;
     }
 }

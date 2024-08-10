@@ -34,4 +34,8 @@ public class SignupRequest {
     @NotNull(message = "major는 Null을 허용하지 않습니다.")
     @NotBlank(message = "major는 공백, 띄어쓰기를 허용하지 않습니다.")
     private String major;
+
+    private int classNumber;
+
+    private int birth;
 }

@@ -31,12 +31,14 @@ public class SignUpService {
         userRepository.save(
 
                     User.builder()
-                                .accountId(request.getAccountId())
-                                .password(passwordEncoder.encode(request.getPassword()))
-                                .email(request.getEmail())
-                                .phonenumber(request.getPhonenumber())
-                                .major(request.getMajor())
-                                .build()
+                            .accountId(request.getAccountId())
+                            .password(passwordEncoder.encode(request.getPassword()))
+                            .email(request.getEmail())
+                            .phonenumber(request.getPhonenumber())
+                            .major(request.getMajor())
+                            .classNumber(request.getClassNumber())
+                            .birth(request.getBirth())
+                            .build()
                     );
 
 
