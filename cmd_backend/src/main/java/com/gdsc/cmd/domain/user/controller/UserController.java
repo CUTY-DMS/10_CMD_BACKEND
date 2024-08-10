@@ -2,7 +2,6 @@ package com.gdsc.cmd.domain.user.controller;
 
 
 import com.gdsc.cmd.domain.user.domain.User;
-import com.gdsc.cmd.domain.user.service.ViewAllStudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
