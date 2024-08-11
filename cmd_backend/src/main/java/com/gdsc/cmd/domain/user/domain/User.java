@@ -2,6 +2,7 @@ package com.gdsc.cmd.domain.user.domain;
 
 
 
+import com.gdsc.cmd.domain.user.domain.type.Role;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,12 +36,14 @@ public class User {
     @Column(columnDefinition = "VARCHAR(100)")
     private String email;
 
-    private int classNumber;
+    private Integer classNumber;
 
-    private int birth;
+    private Integer birth;
+
+    private Role role;
 
     @Builder
-    public User(String accountId, String password, Long phonenumber, String major, String email, int classNumber, int birth) {
+    public User(String accountId, String password, Long phonenumber, String major, String email, Integer classNumber, Integer birth, Role role) {
         this.accountId = accountId;
         this.password = password;
         this.phonenumber = phonenumber;
@@ -48,5 +51,6 @@ public class User {
         this.email = email;
         this.classNumber = classNumber;
         this.birth = birth;
+        this.role = role;
     }
 }

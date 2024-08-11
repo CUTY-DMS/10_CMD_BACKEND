@@ -5,7 +5,9 @@ import lombok.Getter;
 
 @Getter
 public class UserSearchResponse {
+
     private String accountId;
+
     private int classNumber;
 
     @Builder

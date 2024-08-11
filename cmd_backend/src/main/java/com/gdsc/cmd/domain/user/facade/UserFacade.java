@@ -15,7 +15,6 @@ import java.util.Optional;
 public class UserFacade {
     private final UserRepository userRepository;
     public Optional<User> getCurrentUser() {
-        // 인증 가능한 유저를 확인
         String accountId = SecurityContextHolder.getContext().getAuthentication().getName();
         return userRepository.findByAccountId(accountId);
     }

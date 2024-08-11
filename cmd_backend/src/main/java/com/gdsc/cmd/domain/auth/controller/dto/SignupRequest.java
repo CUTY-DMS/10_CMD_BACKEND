@@ -35,7 +35,9 @@ public class SignupRequest {
     @NotBlank(message = "major는 공백, 띄어쓰기를 허용하지 않습니다.")
     private String major;
 
-    private int classNumber;
+    @NotNull
+    private Integer classNumber;
 
-    private int birth;
+    @NotNull
+    private Integer birth;
 }

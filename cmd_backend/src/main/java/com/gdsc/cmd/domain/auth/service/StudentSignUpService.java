@@ -1,4 +1,5 @@
 package com.gdsc.cmd.domain.auth.service;
+import com.gdsc.cmd.domain.user.domain.type.Role;
 import lombok.RequiredArgsConstructor;
 
 import com.gdsc.cmd.domain.auth.controller.dto.SignupRequest;
@@ -15,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
-public class SignUpService {
+public class StudentSignUpService {
     private final UserFacade userFacade;
     private final UserRepository userRepository;
     private final JwtTokenProvider jwtTokenProvider;
@@ -38,6 +39,7 @@ public class SignUpService {
                             .major(request.getMajor())
                             .classNumber(request.getClassNumber())
                             .birth(request.getBirth())
+                            .role(Role.TEACHER)
                             .build()
                     );
 

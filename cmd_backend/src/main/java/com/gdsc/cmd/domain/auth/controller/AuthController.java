@@ -4,7 +4,7 @@ import com.gdsc.cmd.domain.auth.controller.dto.SigninRequest;
 import com.gdsc.cmd.domain.auth.controller.dto.SignupRequest;
 import com.gdsc.cmd.domain.auth.service.LoginService;
 import com.gdsc.cmd.domain.auth.service.ReissueService;
-import com.gdsc.cmd.domain.auth.service.SignUpService;
+import com.gdsc.cmd.domain.auth.service.StudentSignUpService;
 import com.gdsc.cmd.global.security.TokenResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +16,7 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 public class AuthController {
     private final LoginService signInService;
-    private final SignUpService signUpService;
+    private final StudentSignUpService signUpService;
     private final ReissueService reissueService;
     @PostMapping("/signin") // 로그인
     public TokenResponse signIn(SigninRequest request){
