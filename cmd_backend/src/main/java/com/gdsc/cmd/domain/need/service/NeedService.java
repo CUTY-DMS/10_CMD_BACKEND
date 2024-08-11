@@ -1,14 +1,14 @@
 package com.gdsc.cmd.domain.need.service;
 
 
+import com.gdsc.cmd.domain.need.domain.type.ExceptionCode;
 import com.gdsc.cmd.domain.need.dto.NeedPostDto;
 import com.gdsc.cmd.domain.need.dto.NeedReadDto;
 import com.gdsc.cmd.domain.need.dto.NeedUpdateDto;
-import com.gdsc.cmd.domain.need.entity.Need;
-import com.gdsc.cmd.domain.need.repository.NeedRepositroy;
-import lombok.NoArgsConstructor;
+import com.gdsc.cmd.domain.need.domain.Need;
+import com.gdsc.cmd.domain.need.domain.repository.NeedRepositroy;
+import com.gdsc.cmd.domain.need.exception.BusinessLogicException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -43,7 +43,9 @@ public class NeedService {
         needRepositroy.deleteById(NeedId);
     }
 
-
+    public Need findNeedId(Long needId){
+        return needRepositroy.findById(needId).orElseThrow(()->new BusinessLogicException(ExceptionCode.NEED_NOT_FOUND));
+    }
 
 
 

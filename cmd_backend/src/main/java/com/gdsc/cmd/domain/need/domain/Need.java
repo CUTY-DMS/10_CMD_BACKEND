@@ -1,7 +1,6 @@
-package com.gdsc.cmd.domain.need.entity;
+package com.gdsc.cmd.domain.need.domain;
 
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

@@ -1,7 +1,7 @@
-package com.gdsc.cmd.domain.need.repository;
+package com.gdsc.cmd.domain.need.domain.repository;
 
 
-import com.gdsc.cmd.domain.need.entity.Need;
+import com.gdsc.cmd.domain.need.domain.Need;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
