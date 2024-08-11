@@ -1,0 +1,33 @@
+package com.gdsc.cmd.domain.need.controller;
+
+import com.gdsc.cmd.domain.need.dto.NeedPostDto;
+import com.gdsc.cmd.domain.need.entity.Need;
+import com.gdsc.cmd.domain.need.service.NeedService;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.RequestEntity;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@Getter @Setter
+@RequestMapping("/api/boards")
+@RequiredArgsConstructor
+public class NeedController {
+    private final NeedService needService;
+
+    @PostMapping
+    public ResponseEntity postNeed(@RequestBody @Validated NeedPostDto postDto){
+        Long NeedId = needService.postneed(postDto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(NeedId); //응답 상태:created, body 내용:NeedId
+    }
+
+
+
+}
