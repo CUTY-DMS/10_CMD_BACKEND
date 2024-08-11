@@ -23,7 +23,7 @@ public class TeacherSignUpService {
         @Transactional
         public TokenResponse execute(SignupRequest request){
 
-            userFacade.checkUserExists(request.getAccountId());
+            // userFacade.checkUserExists(request.getAccountId());
 
 
 
@@ -38,7 +38,7 @@ public class TeacherSignUpService {
                             .major(request.getMajor())
                             .classNumber(request.getClassNumber())
                             .birth(request.getBirth())
-                            .role(Role.STUDENT)
+                            .role(Role.TEACHER)
                             .build()
             );
 

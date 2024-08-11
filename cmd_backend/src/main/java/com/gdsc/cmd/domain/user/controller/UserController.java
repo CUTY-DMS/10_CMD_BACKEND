@@ -26,7 +26,7 @@ public class UserController {
         return allUserSearchService.findAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{account-id}")
     public Optional<UserDetailResponse> searchUserDetail(@PathVariable String accountId){
         return userDetailService.findUserDetail(accountId);
     }

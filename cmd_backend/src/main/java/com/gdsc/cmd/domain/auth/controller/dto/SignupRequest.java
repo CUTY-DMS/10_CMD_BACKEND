@@ -28,16 +28,15 @@ public class SignupRequest {
     private String email;
 
     @NotNull(message = "phonenumber는 Null을 허용하지 않습니다.")
-    @Digits(integer = 15, fraction = 0, message = "phonenumber는 최대 15자리 숫자여야 합니다.")
-    private Long phonenumber;
+    private String phonenumber;
 
     @NotNull(message = "major는 Null을 허용하지 않습니다.")
     @NotBlank(message = "major는 공백, 띄어쓰기를 허용하지 않습니다.")
     private String major;
 
     @NotNull
-    private Integer classNumber;
+    private String classNumber;
 
     @NotNull
-    private Integer birth;
+    private String birth;
 }
