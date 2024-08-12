@@ -1,4 +1,4 @@
-package com.gdsc.cmd.domain.need.domain;
+package com.gdsc.cmd.domain.notification.domain;
 
 
 import lombok.Getter;
@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Entity
 @Getter @Setter
 @NoArgsConstructor
-public class Need {
+public class Notification {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

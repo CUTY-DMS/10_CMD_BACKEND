@@ -1,6 +1,6 @@
-package com.gdsc.cmd.domain.need.exception;
+package com.gdsc.cmd.domain.notification.exception;
 
-import com.gdsc.cmd.domain.need.domain.type.ExceptionCode;
+import com.gdsc.cmd.domain.notification.domain.type.ExceptionCode;
 import lombok.Getter;
 
 public class BusinessLogicException extends RuntimeException{
