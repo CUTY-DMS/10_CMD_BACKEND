@@ -3,7 +3,7 @@ package com.gdsc.cmd.domain.need.service;
 
 import com.gdsc.cmd.domain.need.domain.type.ExceptionCode;
 import com.gdsc.cmd.domain.need.dto.NeedPostDto;
-import com.gdsc.cmd.domain.need.dto.NeedReadDto;
+import com.gdsc.cmd.domain.need.dto.NeedResponseDto;
 import com.gdsc.cmd.domain.need.dto.NeedUpdateDto;
 import com.gdsc.cmd.domain.need.domain.Need;
 import com.gdsc.cmd.domain.need.domain.repository.NeedRepositroy;
@@ -27,13 +27,16 @@ public class NeedService {
         return needRepositroy.save(need).getNeedId();
     }
 
-    public Need readneed(NeedReadDto readDto){
-        return needRepositroy.findById(readDto.getNeedId()).get();
+
+    public NeedResponseDto findByNeedId(Long needId){
+        Need need = findNeedId(needId);
+        return NeedResponseDto.FindFromNeed(need);
     }
 
+
     @Transactional
-    public Long updateNeed(NeedUpdateDto updateDto, Long NeedId ){
-        Need need = needRepositroy.findById(NeedId).orElseThrow(()->new RuntimeException("NeedId not found"));
+    public Long updateNeed(NeedUpdateDto updateDto, Long needId ){
+        Need need = findNeedId(needId);
         need.setTitle(updateDto.getTitle());
         need.setContent(updateDto.getContent());
         return needRepositroy.save(need).getNeedId();
@@ -43,9 +46,14 @@ public class NeedService {
         needRepositroy.deleteById(NeedId);
     }
 
+
+
     public Need findNeedId(Long needId){
-        return needRepositroy.findById(needId).orElseThrow(()->new BusinessLogicException(ExceptionCode.NEED_NOT_FOUND));
+        return needRepositroy.findById(needId)
+                .orElseThrow(()->new
+                        BusinessLogicException(ExceptionCode.NEED_NOT_FOUND));
     }
+
 
 
 

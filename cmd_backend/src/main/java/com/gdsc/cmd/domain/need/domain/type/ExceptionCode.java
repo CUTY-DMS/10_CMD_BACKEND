@@ -4,7 +4,7 @@ import lombok.Getter;
 
 public enum ExceptionCode {
 
-    NEED_NOT_FOUND(400,"need not found");
+    NEED_NOT_FOUND(404,"need not found");
 
     @Getter
     private int status;
