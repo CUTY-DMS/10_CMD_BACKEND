@@ -24,12 +24,14 @@ public class UserController {
 
     private final AllUserSearchService allUserSearchService;
     private final UserDetailService userDetailService;
+
     @GetMapping("")
-    public List<UserSearchResponse> showAllUser(){
+    public List<UserSearchResponse> showAllUser() {
         return allUserSearchService.findAll();
     }
 
     @GetMapping("/{account-id}")
-    public Optional<UserDetailResponse> searchUserDetail(@PathVariable String accountId){
+    public Optional<UserDetailResponse> searchUserDetail(@PathVariable String accountId) {
         return userDetailService.findUserDetail(accountId);
     }
+}

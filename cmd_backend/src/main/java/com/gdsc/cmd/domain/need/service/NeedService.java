@@ -43,6 +43,7 @@ public class NeedService {
     }
 
     public void deleteNeed(Long NeedId){
+
         needRepositroy.deleteById(NeedId);
     }
 

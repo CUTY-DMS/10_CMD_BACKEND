@@ -1,6 +1,7 @@
 package com.gdsc.cmd.domain.need.controller;
 
 import com.gdsc.cmd.domain.need.dto.NeedPostDto;
+import com.gdsc.cmd.domain.need.dto.NeedResponseDto;
 import com.gdsc.cmd.domain.need.dto.NeedUpdateDto;
 import com.gdsc.cmd.domain.need.domain.Need;
 import com.gdsc.cmd.domain.need.domain.repository.NeedRepositroy;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Getter @Setter
-@RequestMapping("/api/boards")
+@RequestMapping("/api/need")
 @RequiredArgsConstructor
 public class NeedController {
     private final NeedService needService;
@@ -29,7 +30,8 @@ public class NeedController {
 
     @GetMapping("/{needId}")
     public ResponseEntity readNeed(@PathVariable("needId")Long needId){
-
+        NeedResponseDto needResponseDto = needService.findByNeedId(needId);
+                return ResponseEntity.status(HttpStatus.OK).body(needResponseDto);
     }
 
 
@@ -38,13 +40,13 @@ public class NeedController {
                                      @RequestBody @Validated NeedUpdateDto needUpdateDto)
     {
         needService.updateNeed(needUpdateDto,needId);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 
-    public Need findNeedId(Long needId){
-        return needRepositroy.findById(needId)
-                .orElseThrow(()->new )
+    @DeleteMapping("/{needId}")
+    public ResponseEntity deleteNeed(@PathVariable("needId")Long needId){
+        needService.deleteNeed(needId);
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
-
 
 }
