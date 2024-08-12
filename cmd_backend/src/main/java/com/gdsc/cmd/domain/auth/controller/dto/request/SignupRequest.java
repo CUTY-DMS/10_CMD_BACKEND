@@ -1,4 +1,4 @@
-package com.gdsc.cmd.domain.auth.controller.dto;
+package com.gdsc.cmd.domain.auth.controller.dto.request;
 
 import lombok.Builder;
 import lombok.Getter;
