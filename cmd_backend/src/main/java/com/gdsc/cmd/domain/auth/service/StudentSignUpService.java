@@ -24,7 +24,8 @@ public class StudentSignUpService {
     @Transactional
     public TokenResponse execute(SignupRequest request){
 
-        // userFacade.checkUserExists(request.getAccountId());
+        // 처음 아이디 만들 때는 비활성화
+        userFacade.checkUserExists(request.getAccountId());
 
 
 

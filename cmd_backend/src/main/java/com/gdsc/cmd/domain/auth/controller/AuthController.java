@@ -1,5 +1,6 @@
 package com.gdsc.cmd.domain.auth.controller;
 
+import antlr.Token;
 import com.gdsc.cmd.domain.auth.controller.dto.SigninRequest;
 import com.gdsc.cmd.domain.auth.controller.dto.SignupRequest;
 import com.gdsc.cmd.domain.auth.service.LoginService;
@@ -27,10 +28,9 @@ public class AuthController {
 
     }
     @PostMapping("/signup")
-    public String signup(@RequestBody SignupRequest signupRequest) {
-        studentSignUpService.execute(signupRequest);
+    public TokenResponse signup(@RequestBody SignupRequest signupRequest) {
 
-        return "Student signed up successfully";
+        return studentSignUpService.execute(signupRequest);
     }
 
     @PostMapping("/reissue")
@@ -39,9 +39,7 @@ public class AuthController {
     }
 
     @PostMapping("/signup/admin")
-    public String adminSignup(@RequestBody SignupRequest signupRequest) {
-        teacherSignUpService.execute(signupRequest);
-
-        return "Teacher signed up successfully";
+    public TokenResponse adminSignup(@RequestBody SignupRequest signupRequest) {
+        return teacherSignUpService.execute(signupRequest);
     }
 }
