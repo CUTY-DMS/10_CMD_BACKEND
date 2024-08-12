@@ -1,8 +1,7 @@
 package com.gdsc.cmd.domain.auth.controller;
 
-import antlr.Token;
-import com.gdsc.cmd.domain.auth.controller.dto.SigninRequest;
-import com.gdsc.cmd.domain.auth.controller.dto.SignupRequest;
+import com.gdsc.cmd.domain.auth.controller.dto.request.SigninRequest;
+import com.gdsc.cmd.domain.auth.controller.dto.request.SignupRequest;
 import com.gdsc.cmd.domain.auth.service.LoginService;
 import com.gdsc.cmd.domain.auth.service.ReissueService;
 import com.gdsc.cmd.domain.auth.service.StudentSignUpService;
@@ -10,8 +9,6 @@ import com.gdsc.cmd.domain.auth.service.TeacherSignUpService;
 import com.gdsc.cmd.global.security.TokenResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/auth")
