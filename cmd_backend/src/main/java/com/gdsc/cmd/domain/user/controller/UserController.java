@@ -8,10 +8,7 @@ import com.gdsc.cmd.domain.user.domain.User;
 import com.gdsc.cmd.domain.user.service.AllUserSearchService;
 import com.gdsc.cmd.domain.user.service.UserDetailService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
@@ -31,7 +28,7 @@ public class UserController {
     }
 
     @GetMapping("/{account-id}")
-    public Optional<UserDetailResponse> searchUserDetail(@PathVariable String accountId) {
+    public Optional<UserDetailResponse> searchUserDetail(@PathVariable("account-id") String accountId) {
         return userDetailService.findUserDetail(accountId);
     }
 }
