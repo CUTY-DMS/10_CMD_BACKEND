@@ -1,10 +1,9 @@
 package com.gdsc.cmd.domain.user.service;
 
-import com.gdsc.cmd.domain.user.controller.dto.UserDetailResponse;
+import com.gdsc.cmd.domain.user.controller.dto.response.UserDetailResponse;
 import com.gdsc.cmd.domain.user.domain.User;
 import com.gdsc.cmd.domain.user.facade.UserFacade;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.authentication.UserDetailsRepositoryReactiveAuthenticationManager;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

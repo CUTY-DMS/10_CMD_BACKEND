@@ -1,4 +1,4 @@
-package com.gdsc.cmd.domain.user.controller.dto;
+package com.gdsc.cmd.domain.user.controller.dto.response;
 
 import lombok.Builder;
 import lombok.Getter;
