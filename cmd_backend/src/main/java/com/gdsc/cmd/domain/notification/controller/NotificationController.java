@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Getter @Setter
-@RequestMapping("/api/notification")
+@RequestMapping("/notification")
 @RequiredArgsConstructor
 public class NotificationController {
 
@@ -35,24 +35,24 @@ public class NotificationController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping("/{needId}")
-    public NotificationFindResponseDto readNotification(@PathVariable("needId")Long needId){
+    @GetMapping("/{notificationId}")
+    public NotificationFindResponseDto readNotification(@PathVariable("notificationId")Long needId){
         NotificationFindResponseDto notificationFindResponseDto = notificationReadService.readNotification(needId);
                 return notificationFindResponseDto;
     }
 
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PatchMapping("/{needId}")
-    public void updateNotification(@PathVariable("needId") Long needId,
+    @PatchMapping("/{notificationId}")
+    public void updateNotification(@PathVariable("notificationId") Long needId,
                                    @RequestBody @Validated NotificationUpdateRequestDto notificationUpdateRequestDto)
     {
         notificationUpdateService.updateNotification(notificationUpdateRequestDto,needId);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping("/{needId}")
-    public void deleteNotification(@PathVariable("needId")Long needId){
+    @DeleteMapping("/{notificationId}")
+    public void deleteNotification(@PathVariable("notificationId")Long needId){
         notificationDeleteService.deleteNotification(needId);
 
     }
