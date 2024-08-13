@@ -4,7 +4,7 @@ package com.gdsc.cmd.domain.notification.service;
 import com.gdsc.cmd.domain.notification.domain.Notification;
 import com.gdsc.cmd.domain.notification.domain.type.ExceptionCode;
 import com.gdsc.cmd.domain.notification.dto.NotificationPostRequestDto;
-import com.gdsc.cmd.domain.notification.dto.NotificationResponseDto;
+import com.gdsc.cmd.domain.notification.dto.NotificationFindRequestDto;
 import com.gdsc.cmd.domain.notification.dto.NotificationUpdateDto;
 import com.gdsc.cmd.domain.notification.domain.repository.NotificationRepositroy;
 import com.gdsc.cmd.domain.notification.exception.BusinessLogicException;
@@ -27,16 +27,16 @@ public class NotificationService {
         return notificationRepositroy.save(notification).getNeedId();
     }
 
-
-    public NotificationResponseDto findByNeedId(Long needId){
-        Notification notification = findNeedId(needId);
-        return NotificationResponseDto.FindFromNeed(notification);
+    
+    public NotificationFindRequestDto readNotification(Long notificationId){
+        Notification notification = findByNotificationId(notificationId);
+        return NotificationFindRequestDto.FindFromNeed(notification);
     }
 
 
     @Transactional
-    public Long updateNeed(NotificationUpdateDto updateDto, Long needId ){
-        Notification notification = findNeedId(needId);
+    public Long updateNeed(NotificationUpdateDto updateDto, Long notificationId ){
+        Notification notification = findByNotificationId(notificationId);
         notification.setTitle(updateDto.getTitle());
         notification.setContent(updateDto.getContent());
         return notificationRepositroy.save(notification).getNeedId();
@@ -48,8 +48,8 @@ public class NotificationService {
     }
 
 
-    public Notification findNeedId(Long needId){
-        return notificationRepositroy.findById(needId)
+    public Notification findByNotificationId(Long notificationId){
+        return notificationRepositroy.findById(notificationId)
                 .orElseThrow(()->new
                         BusinessLogicException(ExceptionCode.NEED_NOT_FOUND));
     }

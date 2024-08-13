@@ -7,13 +7,13 @@ import lombok.Setter;
 
 @Getter @Setter
 @AllArgsConstructor
-public class NotificationResponseDto {
+public class NotificationFindRequestDto {
     private Long needId;
     private String title;
     private String content;
 
-    public static NotificationResponseDto FindFromNeed(Notification notification) {
-        return new NotificationResponseDto(notification.getNeedId(),
+    public static NotificationFindRequestDto FindFromNeed(Notification notification) {
+        return new NotificationFindRequestDto(notification.getNeedId(),
                                 notification.getTitle(),
                                 notification.getContent());
     }

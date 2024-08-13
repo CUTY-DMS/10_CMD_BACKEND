@@ -1,7 +1,7 @@
 package com.gdsc.cmd.domain.notification.controller;
 
 import com.gdsc.cmd.domain.notification.dto.NotificationPostRequestDto;
-import com.gdsc.cmd.domain.notification.dto.NotificationResponseDto;
+import com.gdsc.cmd.domain.notification.dto.NotificationFindRequestDto;
 import com.gdsc.cmd.domain.notification.dto.NotificationUpdateDto;
 import com.gdsc.cmd.domain.notification.domain.repository.NotificationRepositroy;
 import com.gdsc.cmd.domain.notification.service.NotificationService;
@@ -25,13 +25,13 @@ public class NotificationController {
     @PostMapping
     public Long postNeed(@RequestBody @Validated NotificationPostRequestDto postDto){
         Long notificationId = notificationService.postneed(postDto);
-        return notificationId; //응답 상태:created, body 내용:NeedId
+        return notificationId;
     }
 
     @GetMapping("/{needId}")
     public ResponseEntity readNeed(@PathVariable("needId")Long needId){
-        NotificationResponseDto notificationResponseDto = notificationService.findByNeedId(needId);
-                return ResponseEntity.status(HttpStatus.OK).body(notificationResponseDto);
+        NotificationFindRequestDto notificationFindRequestDto = notificationService.readNotification(needId);
+                return ResponseEntity.status(HttpStatus.OK).body(notificationFindRequestDto);
     }
 
 
