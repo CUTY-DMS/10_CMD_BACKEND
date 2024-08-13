@@ -1,7 +1,7 @@
 package com.gdsc.cmd.domain.auth.service;
 
 
-import com.gdsc.cmd.domain.auth.controller.dto.SigninRequest;
+import com.gdsc.cmd.domain.auth.controller.dto.request.SigninRequest;
 import com.gdsc.cmd.domain.user.domain.User;
 import com.gdsc.cmd.domain.user.domain.repository.UserRepository;
 import com.gdsc.cmd.global.security.TokenResponse;

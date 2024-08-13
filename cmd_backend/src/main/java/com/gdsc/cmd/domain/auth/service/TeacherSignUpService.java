@@ -1,6 +1,6 @@
 package com.gdsc.cmd.domain.auth.service;
 
-import com.gdsc.cmd.domain.auth.controller.dto.SignupRequest;
+import com.gdsc.cmd.domain.auth.controller.dto.request.SignupRequest;
 import com.gdsc.cmd.domain.user.domain.User;
 import com.gdsc.cmd.domain.user.domain.repository.UserRepository;
 import com.gdsc.cmd.domain.user.domain.type.Role;
