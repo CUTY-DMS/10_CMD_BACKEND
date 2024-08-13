@@ -1,6 +1,6 @@
 package com.gdsc.cmd.domain.user.service;
 
-import com.gdsc.cmd.domain.user.controller.dto.UserSearchResponse;
+import com.gdsc.cmd.domain.user.controller.dto.response.UserSearchResponse;
 import com.gdsc.cmd.domain.user.domain.repository.UserRepository;
 import com.gdsc.cmd.domain.user.domain.type.Role;
 import lombok.RequiredArgsConstructor;
