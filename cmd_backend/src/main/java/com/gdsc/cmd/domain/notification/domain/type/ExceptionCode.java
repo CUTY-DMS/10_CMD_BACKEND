@@ -1,4 +1,4 @@
-package com.gdsc.cmd.domain.need.domain.type;
+package com.gdsc.cmd.domain.notification.domain.type;
 
 import lombok.Getter;
 

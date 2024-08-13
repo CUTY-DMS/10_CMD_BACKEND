@@ -1,14 +1,14 @@
-package com.gdsc.cmd.domain.need.dto;
+package com.gdsc.cmd.domain.notification.dto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+
 
 import javax.validation.constraints.NotEmpty;
 
 @NoArgsConstructor
-@Getter @Setter
-public class NeedUpdateDto {
+@Getter
+public class NotificationUpdateRequestDto {
     @NotEmpty
     private String title;
     @NotEmpty
