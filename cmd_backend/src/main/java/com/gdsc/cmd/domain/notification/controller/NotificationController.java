@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Getter @Setter
-@RequestMapping("/api/need")
+@RequestMapping("/api/notification")
 @RequiredArgsConstructor
 public class NotificationController {
 
