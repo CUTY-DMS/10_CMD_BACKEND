@@ -1,15 +1,17 @@
 package com.gdsc.cmd.domain.notification.controller;
 
-import com.gdsc.cmd.domain.notification.dto.NotificationPostRequestDto;
-import com.gdsc.cmd.domain.notification.dto.NotificationFindRequestDto;
-import com.gdsc.cmd.domain.notification.dto.NotificationUpdateDto;
+import com.gdsc.cmd.domain.notification.dto.NotificationCreateRequestDto;
+import com.gdsc.cmd.domain.notification.dto.NotificationFindResponseDto;
+import com.gdsc.cmd.domain.notification.dto.NotificationUpdateRequestDto;
 import com.gdsc.cmd.domain.notification.domain.repository.NotificationRepositroy;
-import com.gdsc.cmd.domain.notification.service.NotificationService;
+import com.gdsc.cmd.domain.notification.service.NotificationDeleteService;
+import com.gdsc.cmd.domain.notification.service.NotificationReadService;
+import com.gdsc.cmd.domain.notification.service.NotificationCreateService;
+import com.gdsc.cmd.domain.notification.service.NotificationUpdateService;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,35 +20,41 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/need")
 @RequiredArgsConstructor
 public class NotificationController {
-    private final NotificationService notificationService;
+
     private final NotificationRepositroy notificationRepositroy;
 
-    @ResponseStatus(HttpStatus.CREATED)
+    private final NotificationCreateService notificationCreateService;
+    private final NotificationReadService notificationReadService;
+    private final NotificationUpdateService notificationUpdateService;
+    private final NotificationDeleteService notificationDeleteService;
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @PostMapping
-    public Long postNeed(@RequestBody @Validated NotificationPostRequestDto postDto){
-        Long notificationId = notificationService.postneed(postDto);
-        return notificationId;
+    public void createNotification(@RequestBody @Validated NotificationCreateRequestDto postDto){
+      notificationCreateService.postNotification(postDto);
     }
 
+    @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{needId}")
-    public ResponseEntity readNeed(@PathVariable("needId")Long needId){
-        NotificationFindRequestDto notificationFindRequestDto = notificationService.readNotification(needId);
-                return ResponseEntity.status(HttpStatus.OK).body(notificationFindRequestDto);
+    public NotificationFindResponseDto readNotification(@PathVariable("needId")Long needId){
+        NotificationFindResponseDto notificationFindResponseDto = notificationReadService.readNotification(needId);
+                return notificationFindResponseDto;
     }
 
 
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @PatchMapping("/{needId}")
-    public Long updateNeed(@PathVariable("needId") Long needId,
-                                     @RequestBody @Validated NotificationUpdateDto notificationUpdateDto)
+    public void updateNotification(@PathVariable("needId") Long needId,
+                                   @RequestBody @Validated NotificationUpdateRequestDto notificationUpdateRequestDto)
     {
-        return notificationService.updateNeed(notificationUpdateDto,needId);
+        notificationUpdateService.updateNotification(notificationUpdateRequestDto,needId);
     }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{needId}")
-    public ResponseEntity deleteNeed(@PathVariable("needId")Long needId){
-        notificationService.deleteNeed(needId);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    public void deleteNotification(@PathVariable("needId")Long needId){
+        notificationDeleteService.deleteNotification(needId);
+
     }
 
 }

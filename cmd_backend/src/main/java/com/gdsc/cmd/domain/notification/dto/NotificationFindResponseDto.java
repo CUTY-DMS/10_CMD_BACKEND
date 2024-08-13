@@ -3,17 +3,16 @@ package com.gdsc.cmd.domain.notification.dto;
 import com.gdsc.cmd.domain.notification.domain.Notification;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
 
-@Getter @Setter
+@Getter
 @AllArgsConstructor
-public class NotificationFindRequestDto {
+public class NotificationFindResponseDto {
     private Long needId;
     private String title;
     private String content;
 
-    public static NotificationFindRequestDto FindFromNeed(Notification notification) {
-        return new NotificationFindRequestDto(notification.getNeedId(),
+    public static NotificationFindResponseDto FindFromNotification(Notification notification) {
+        return new NotificationFindResponseDto(notification.getNotificationId(),
                                 notification.getTitle(),
                                 notification.getContent());
     }
