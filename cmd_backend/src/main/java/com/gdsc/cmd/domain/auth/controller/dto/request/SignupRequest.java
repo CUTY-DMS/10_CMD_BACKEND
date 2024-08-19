@@ -12,7 +12,6 @@ import javax.validation.constraints.Digits;
 @Builder
 @Getter
 public class SignupRequest {
-
     @NotBlank(message = "account_id는 Null, 공백, 띄어쓰기를 허용하지 않습니다.")
     @Size(min = 5, max = 30, message = "account_id는 5글자 이상, 30글자 이하여야 합니다.")
     private String accountId;

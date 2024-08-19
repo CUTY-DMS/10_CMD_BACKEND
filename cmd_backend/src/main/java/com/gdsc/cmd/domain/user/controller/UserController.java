@@ -20,7 +20,6 @@ import java.util.Optional;
 @RequestMapping("/user")
 @RequiredArgsConstructor
 public class UserController {
-
     private final AllUserSearchService allUserSearchService;
     private final UserDetailService userDetailService;
     private final MyPageService myPageService;

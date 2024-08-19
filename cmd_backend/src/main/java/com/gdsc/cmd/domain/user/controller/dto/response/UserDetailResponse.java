@@ -10,8 +10,6 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class UserDetailResponse {
-
-
     private String accountId;
 
     private String phonenumber;

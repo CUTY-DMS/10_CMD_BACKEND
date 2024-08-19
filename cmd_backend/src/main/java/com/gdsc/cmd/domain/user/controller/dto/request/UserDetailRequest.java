@@ -11,7 +11,6 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class UserDetailRequest {
     // 변경 할 수 있는거 : phonenumber, major, email, classNumber, birth
-
     @NotNull
     private String phonenumber;
 

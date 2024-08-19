@@ -13,7 +13,6 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 public class MyPageService {
-
     private final UserFacade userFacade;
 
     public UserDetailResponse myInfo() {

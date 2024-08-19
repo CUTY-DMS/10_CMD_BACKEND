@@ -26,9 +26,6 @@ public class TeacherSignUpService {
             // 처음 아이디 만들때는 비활성화
             userFacade.checkUserExists(request.getAccountId());
 
-
-
-
             userRepository.save(
 
                     User.builder()

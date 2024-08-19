@@ -27,9 +27,6 @@ public class StudentSignUpService {
         // 처음 아이디 만들 때는 비활성화
         userFacade.checkUserExists(request.getAccountId());
 
-
-
-
         userRepository.save(
 
                     User.builder()
