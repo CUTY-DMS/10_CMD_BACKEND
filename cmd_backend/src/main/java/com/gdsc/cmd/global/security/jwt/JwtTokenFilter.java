@@ -22,7 +22,8 @@ public class JwtTokenFilter extends OncePerRequestFilter { // Filter 역할을 �
 
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+            throws ServletException, IOException {
         // 헤더에서 JWT 를 받아옵니다.
         String token = jwtTokenProvider.resolveToken(request);
         // 유효한 토큰인지 확인합니다.

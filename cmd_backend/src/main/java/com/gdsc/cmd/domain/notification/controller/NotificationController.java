@@ -2,18 +2,18 @@ package com.gdsc.cmd.domain.notification.controller;
 
 import com.gdsc.cmd.domain.notification.dto.NotificationCreateRequestDto;
 import com.gdsc.cmd.domain.notification.dto.NotificationFindResponseDto;
+import com.gdsc.cmd.domain.notification.dto.NotificationListResponseDto;
 import com.gdsc.cmd.domain.notification.dto.NotificationUpdateRequestDto;
 import com.gdsc.cmd.domain.notification.domain.repository.NotificationRepositroy;
-import com.gdsc.cmd.domain.notification.service.NotificationDeleteService;
-import com.gdsc.cmd.domain.notification.service.NotificationReadService;
-import com.gdsc.cmd.domain.notification.service.NotificationCreateService;
-import com.gdsc.cmd.domain.notification.service.NotificationUpdateService;
+import com.gdsc.cmd.domain.notification.service.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @Getter @Setter
@@ -25,6 +25,7 @@ public class NotificationController {
     private final NotificationReadService notificationReadService;
     private final NotificationUpdateService notificationUpdateService;
     private final NotificationDeleteService notificationDeleteService;
+    private final NotificationFindAllService notificationFindAllService;
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PostMapping
@@ -54,5 +55,11 @@ public class NotificationController {
         notificationDeleteService.deleteNotification(needId);
 
     }
+
+    @GetMapping("")
+    public List<NotificationListResponseDto> findAllNotification(){
+        return notificationFindAllService.findAll();
+    }
+
 
 }

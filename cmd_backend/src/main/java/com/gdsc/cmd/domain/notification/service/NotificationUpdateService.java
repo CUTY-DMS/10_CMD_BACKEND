@@ -17,9 +17,10 @@ public class NotificationUpdateService {
     @Transactional
     public void updateNotification(NotificationUpdateRequestDto updateDto, Long notificationId ){
         Notification notification = notificationFindById.findByNotificationId(notificationId);
-        notification.setTitle(updateDto.getTitle());
-        notification.setContent(updateDto.getContent());
-        notificationRepositroy.save(notification);
-    }
 
+        notification = Notification.builder()
+                .title(updateDto.getTitle())
+                .content(updateDto.getContent()).build();
+                notificationRepositroy.save(notification);
+    }
 }
