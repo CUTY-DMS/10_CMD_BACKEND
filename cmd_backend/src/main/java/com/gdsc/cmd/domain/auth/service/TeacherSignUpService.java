@@ -22,7 +22,6 @@ public class TeacherSignUpService {
         private final PasswordEncoder passwordEncoder;
         @Transactional
         public TokenResponse execute(SignupRequest request){
-
             // 처음 아이디 만들때는 비활성화
             userFacade.checkUserExists(request.getAccountId());
 
@@ -39,8 +38,6 @@ public class TeacherSignUpService {
                             .role(Role.TEACHER)
                             .build()
             );
-
-
 
             return jwtTokenProvider.createToken(request.getAccountId());
 

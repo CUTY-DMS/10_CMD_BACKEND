@@ -20,9 +20,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/notification")
 @RequiredArgsConstructor
 public class NotificationController {
-
     private final NotificationRepositroy notificationRepositroy;
-
     private final NotificationCreateService notificationCreateService;
     private final NotificationReadService notificationReadService;
     private final NotificationUpdateService notificationUpdateService;
