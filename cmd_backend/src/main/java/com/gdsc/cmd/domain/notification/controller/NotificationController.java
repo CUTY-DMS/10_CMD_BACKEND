@@ -36,8 +36,7 @@ public class NotificationController {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{notificationId}")
     public NotificationFindResponseDto readNotification(@PathVariable("notificationId")Long needId){
-        NotificationFindResponseDto notificationFindResponseDto = notificationReadService.readNotification(needId);
-                return notificationFindResponseDto;
+         return notificationReadService.readNotification(needId);
     }
 
 
@@ -56,7 +55,7 @@ public class NotificationController {
 
     }
 
-    @GetMapping("")
+    @GetMapping
     public List<NotificationListResponseDto> findAllNotification(){
         return notificationFindAllService.findAll();
     }

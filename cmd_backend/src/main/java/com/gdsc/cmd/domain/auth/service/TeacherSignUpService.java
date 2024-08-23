@@ -11,15 +11,16 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 @Service
 @RequiredArgsConstructor
 public class TeacherSignUpService {
-
 
         private final UserFacade userFacade;
         private final UserRepository userRepository;
         private final JwtTokenProvider jwtTokenProvider;
         private final PasswordEncoder passwordEncoder;
+
         @Transactional
         public TokenResponse execute(SignupRequest request){
             // 처음 아이디 만들때는 비활성화
@@ -42,6 +43,4 @@ public class TeacherSignUpService {
             return jwtTokenProvider.createToken(request.getAccountId());
 
         }
-
-
 }

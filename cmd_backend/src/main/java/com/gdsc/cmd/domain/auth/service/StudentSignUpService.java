@@ -17,10 +17,12 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @RequiredArgsConstructor
 public class StudentSignUpService {
+
     private final UserFacade userFacade;
     private final UserRepository userRepository;
     private final JwtTokenProvider jwtTokenProvider;
     private final PasswordEncoder passwordEncoder;
+
     @Transactional
     public TokenResponse execute(SignupRequest request){
         // 처음 아이디 만들 때는 비활성화

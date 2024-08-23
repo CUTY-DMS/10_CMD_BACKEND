@@ -7,8 +7,8 @@ import com.gdsc.cmd.domain.notification.dto.NotificationListResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -18,7 +18,15 @@ public class NotificationFindAllService {
 
 
    public List<NotificationListResponseDto> findAll(){
-    List<Notification> entityList = notificationRepositroy.findAll(); //먼져 공지 엔티티의 DB 행값들을 다 넣어줌.
+
+       return notificationRepositroy.findAll()
+               .stream()
+               .map(NotificationListResponseDto::new)
+               .collect(Collectors.toList());
+
+       /*
+
+           List<Notification> entityList = notificationRepositroy.findAll(); //먼져 공지 엔티티의 DB 행값들을 다 넣어줌.
 
       List<NotificationListResponseDto> dtoList = new ArrayList<>();
 
@@ -31,5 +39,6 @@ public class NotificationFindAllService {
       }
 
     return dtoList;
+        */
    }
 }
