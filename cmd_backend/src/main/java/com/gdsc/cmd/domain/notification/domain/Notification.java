@@ -21,7 +21,7 @@ public class Notification {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long notificationId;
 
-    @Column(columnDefinition = "VARCHAR(30)")
+    @Column( columnDefinition = "VARCHAR(30)")
     @NotNull
     private String title;
 

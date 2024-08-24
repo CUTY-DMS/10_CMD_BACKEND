@@ -3,7 +3,7 @@ package com.gdsc.cmd.domain.notification.domain.type;
 import lombok.Getter;
 
 public enum ExceptionCode {
-    NEED_NOT_FOUND(404,"need not found");
+    NOTIFICATION_NOT_FOUND(404,"notification not found");
 
     @Getter
     private int status;
