@@ -20,7 +20,6 @@ public class NotificationCreateService {
     private final UserFacade userFacade;
 
     public void postNotification(NotificationCreateRequestDto postDto){
-        Calendar calendar = Calendar.getInstance();
 
         Optional<User> currentUser = userFacade.getCurrentUser();
 

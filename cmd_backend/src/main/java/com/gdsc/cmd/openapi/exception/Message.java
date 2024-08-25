@@ -4,7 +4,7 @@ import com.gdsc.cmd.openapi.domain.type.StatusEnum;
 import lombok.Data;
 
 @Data // gatter,setter 등 여러 유용한거 짬뽕시켜논 어노테이션.
-public class Message {
+public class Message extends Throwable {
 
     private StatusEnum status;
     private String message;

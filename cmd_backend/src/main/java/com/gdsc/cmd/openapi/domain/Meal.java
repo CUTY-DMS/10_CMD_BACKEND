@@ -16,13 +16,13 @@ public class Meal {
     @Column(name = "type",columnDefinition = "VARCHAR(2)")
     private String MMEAL_SC_NM;
 
-    @Column(name = "date", nullable = false,columnDefinition = "VARCHAR(8)")
+    @Column(name = "date", nullable = true,columnDefinition = "VARCHAR(8)")
     private String MLSV_YMD;
 
-    @Column(name = "meals", nullable = false,columnDefinition = "VARCHAR()")
+    @Column(name = "meals", nullable = true,columnDefinition = "VARCHAR(100)")
     private String DDISH_NM;
 
-    @Column(name = "calorie", nullable = false,columnDefinition = "VARCHAR()")
+    @Column(name = "calorie", nullable = false,columnDefinition = "VARCHAR(100)")
     private String CAL_INFO;
 
     @Builder
