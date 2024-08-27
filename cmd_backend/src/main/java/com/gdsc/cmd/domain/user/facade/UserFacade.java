@@ -14,6 +14,7 @@ import java.util.Optional;
 @AllArgsConstructor
 public class UserFacade {
     private final UserRepository userRepository;
+
     public Optional<User> getCurrentUser() {
         String accountId = SecurityContextHolder.getContext().getAuthentication().getName();
         return userRepository.findByAccountId(accountId);

@@ -16,7 +16,7 @@ public class NotificationFindById {
     public Notification findByNotificationId(Long notificationId){
         return notificationRepositroy.findById(notificationId)
                 .orElseThrow(()->new
-                        BusinessLogicException(ExceptionCode.NEED_NOT_FOUND));
+                        BusinessLogicException(ExceptionCode.NOTIFICATION_NOT_FOUND));
     }
 
 }
