@@ -56,3 +56,20 @@ cloud:
 
   stack:
     auto: false
+
+    #SMTP
+    mail:
+      host: smtp.gmail.com
+      port: 587
+      username: {EMAIL}
+      password: {PASSWORD}
+      properties:
+        mail:
+          smtp:
+            starttls:
+              enable: true
+            auth: ture
+
+#properties
+props:
+  reset-password-url: {앱,프론트 배포 서버}
