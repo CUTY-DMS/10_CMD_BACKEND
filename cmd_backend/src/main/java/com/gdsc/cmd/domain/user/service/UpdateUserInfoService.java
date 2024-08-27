@@ -18,22 +18,19 @@ public class UpdateUserInfoService { // put사용
     private final UserRepository userRepository;
     private final UserFacade userFacade;
     @Transactional
-    public void userInfoUpdate(String accountId, UserDetailRequest userDetailRequest){
+    public void userInfoUpdate(String accountId, UserDetailRequest userDetailRequest) {
         User user = userRepository.findByAccountId(accountId).orElseThrow(() ->
                 new UsernameNotFoundException("User not found"));
 
-        // 기존 값들을 유지하고, null이 아닌 경우에만 업데이트
-        User.UserBuilder userBuilder = User.builder()
-                .id(user.getId())
-                .accountId(user.getAccountId())
-                .password(user.getPassword())
-                .role(user.getRole())
-                .phonenumber(userDetailRequest.getPhonenumber())
-                .birth(userDetailRequest.getBirth())
-                .major(userDetailRequest.getMajor())
-                .email(userDetailRequest.getEmail())
-                .classNumber(userDetailRequest.getClassNumber());
+        // toBuilder를 사용하여 기존 필드 유지, 필요한 필드만 업데이트
+        User updatedUser = user.toBuilder()
+                .phonenumber(Objects.nonNull(userDetailRequest.getPhonenumber()) ? userDetailRequest.getPhonenumber() : user.getPhonenumber())
+                .birth(Objects.nonNull(userDetailRequest.getBirth()) ? userDetailRequest.getBirth() : user.getBirth())
+                .major(Objects.nonNull(userDetailRequest.getMajor()) ? userDetailRequest.getMajor() : user.getMajor())
+                .email(Objects.nonNull(userDetailRequest.getEmail()) ? userDetailRequest.getEmail() : user.getEmail())
+                .classNumber(Objects.nonNull(userDetailRequest.getClassNumber()) ? userDetailRequest.getClassNumber() : user.getClassNumber())
+                .build();
 
-        userRepository.save(userBuilder.build());
+        userRepository.save(updatedUser);
     }
 }

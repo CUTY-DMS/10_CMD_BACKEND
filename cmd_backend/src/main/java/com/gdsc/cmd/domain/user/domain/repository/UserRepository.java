@@ -4,6 +4,7 @@ import com.gdsc.cmd.domain.user.domain.User;
 import com.gdsc.cmd.domain.user.domain.type.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
