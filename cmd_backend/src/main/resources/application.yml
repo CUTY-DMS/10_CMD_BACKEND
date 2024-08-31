@@ -9,7 +9,7 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
       dialect: org.hibernate.dialect.MySQLDialect
     properties:
       hibernate:
@@ -27,6 +27,18 @@ spring:
     host: localhost
     port: 6379
     password: 1
+# SMTP
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${EMAIL}
+    password: ${PASSWORD}
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: ture
+          auth: ture
 
 jwt:
   header: ${HEADER:Authorize}
@@ -57,19 +69,7 @@ cloud:
   stack:
     auto: false
 
-    #SMTP
-    mail:
-      host: smtp.gmail.com
-      port: 587
-      username: {EMAIL}
-      password: {PASSWORD}
-      properties:
-        mail:
-          smtp:
-            starttls:
-              enable: true
-            auth: ture
 
 #properties
 props:
-  reset-password-url: {앱,프론트 배포 서버}
+  reset-password-url: {앱,프론트 배포 서버 url}

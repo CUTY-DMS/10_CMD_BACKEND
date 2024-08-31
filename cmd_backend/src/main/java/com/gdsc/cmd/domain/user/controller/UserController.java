@@ -9,7 +9,12 @@ import com.gdsc.cmd.domain.user.service.AllUserSearchService;
 import com.gdsc.cmd.domain.user.service.MyPageService;
 import com.gdsc.cmd.domain.user.service.UpdateUserInfoService;
 import com.gdsc.cmd.domain.user.service.UserDetailService;
+import com.gdsc.cmd.global.findpassword.dto.SendResetPasswordEmailRequest;
+import com.gdsc.cmd.global.findpassword.dto.SendResetPasswordEmailResponse;
+import com.gdsc.cmd.global.findpassword.service.ExistsEmailService;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -24,6 +29,7 @@ public class UserController {
     private final UserDetailService userDetailService;
     private final MyPageService myPageService;
     private final UpdateUserInfoService updateUserInfoService;
+    private final ExistsEmailService existsEmailService;
 
     @GetMapping("")
     public List<UserSearchResponse> showAllUser() {
@@ -45,4 +51,15 @@ public class UserController {
         updateUserInfoService.userInfoUpdate(accountId, userDetailRequest);
         return "Updated!!";
     }
+
+  /*  //UUID 생성 및 이메일 전송
+    @Operation(summary = "UUID 생성 및 이메일 전송")
+    @PostMapping("/send-reset-password")
+    public SendResetPasswordEmailResponse sendRestPassword(
+            @Validated @RequestBody SendResetPasswordEmailRequest resetPasswordEmailRequest) {
+            existsEmailService.checkUserByEmail(resetPasswordEmailRequest.getEmail());
+
+
+    }
+*/
 }

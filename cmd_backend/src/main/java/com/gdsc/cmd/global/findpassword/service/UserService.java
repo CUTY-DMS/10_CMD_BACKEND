@@ -7,21 +7,21 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.Optional;
 
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class ResetUserPasswordService {
+public class UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final RedisService redisService;
+    private final SendMailService sendMailService;
 
     @Transactional
     public void resetPassword(String uuid, String password) {
-
-        String email = redisService.getValue(uuid);
+/*
+       // String email = redisService.getValue(uuid);
         if (email == null) {
             throw new RuntimeException();
         }
@@ -32,6 +32,8 @@ public class ResetUserPasswordService {
 
             String hadhedPassword = passwordEncoder.encode(newPassword);
         }
+*/
+
 
 
 

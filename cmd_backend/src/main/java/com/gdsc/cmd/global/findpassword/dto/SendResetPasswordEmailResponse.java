@@ -2,11 +2,11 @@ package com.gdsc.cmd.global.findpassword.dto;
 
 import lombok.Builder;
 
-public class SendResetPasswordEmailRes {
+public class SendResetPasswordEmailResponse {
     private String UUID;
 
     @Builder
-    public SendResetPasswordEmailRes(String UUID) {
+    public SendResetPasswordEmailResponse(String UUID) {
         this.UUID = UUID;
     }
 }
