@@ -13,7 +13,11 @@ public interface UserRepository extends JpaRepository<User,Long> {
     Optional<User> findByAccountId(String accountId);
 
     // 특정 역할에 해당되는 유저를 찾기 위해 사용하는 메소드
-    List<User> findAllByRole(Role role);
+   List<User> findAllByRole(Role role);
+
+   Optional<User> findByEmail(String email);
+
+   Boolean existsByEmail(String email);
 
 
 }

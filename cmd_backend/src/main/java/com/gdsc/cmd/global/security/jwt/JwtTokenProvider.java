@@ -81,7 +81,6 @@ public class JwtTokenProvider { // token 공급자
             return Jwts.parser().setSigningKey(jwtProperties.getSecretKey()).parseClaimsJws(token).getBody();
         } catch (ExpiredJwtException e) {
             throw new RuntimeException();
-
         }
     }
 

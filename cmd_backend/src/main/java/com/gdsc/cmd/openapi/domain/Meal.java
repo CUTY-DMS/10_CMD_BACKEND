@@ -2,34 +2,30 @@ package com.gdsc.cmd.openapi.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor
+@Builder
+@AllArgsConstructor
+@Getter
 public class Meal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "type",columnDefinition = "VARCHAR(2)")
+    @Column(name = "type",columnDefinition = "VARCHAR(1000)")
     private String MMEAL_SC_NM;
 
-    @Column(name = "date", nullable = true,columnDefinition = "VARCHAR(8)")
-    private String MLSV_YMD;
+    @Column(columnDefinition = "VARCHAR(1000)")
+    private String date;
 
-    @Column(name = "meals", nullable = true,columnDefinition = "VARCHAR(100)")
+    @Column(name = "meals",columnDefinition = "VARCHAR(10000)")
     private String DDISH_NM;
 
-    @Column(name = "calorie", nullable = false,columnDefinition = "VARCHAR(100)")
+    @Column(name = "calorie",columnDefinition = "VARCHAR(1000)")
     private String CAL_INFO;
-
-    @Builder
-    public Meal(String MMEAL_SC_NM, String MLSV_YMD, String DDISH_NM, String CAL_INFO) {
-        this.MMEAL_SC_NM = MMEAL_SC_NM;
-        this.MLSV_YMD = MLSV_YMD;
-        this.DDISH_NM = DDISH_NM;
-        this.CAL_INFO = CAL_INFO;
-    }
 }

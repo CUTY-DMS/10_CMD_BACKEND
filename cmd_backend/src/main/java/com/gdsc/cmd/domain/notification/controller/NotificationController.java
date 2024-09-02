@@ -2,7 +2,7 @@ package com.gdsc.cmd.domain.notification.controller;
 
 import com.gdsc.cmd.domain.notification.dto.NotificationCreateRequestDto;
 import com.gdsc.cmd.domain.notification.dto.NotificationFindResponseDto;
-import com.gdsc.cmd.domain.notification.dto.NotificationListResponseDto;
+import com.gdsc.cmd.domain.notification.dto.NotificationFindAllResponse;
 import com.gdsc.cmd.domain.notification.dto.NotificationUpdateRequestDto;
 import com.gdsc.cmd.domain.notification.domain.repository.NotificationRepositroy;
 import com.gdsc.cmd.domain.notification.service.*;
@@ -56,7 +56,7 @@ public class NotificationController {
     }
 
     @GetMapping
-    public List<NotificationListResponseDto> findAllNotification(){
+    public List<NotificationFindAllResponse> findAllNotification(){
         return notificationFindAllService.findAll();
     }
 
