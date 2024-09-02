@@ -2,6 +2,7 @@ package com.gdsc.cmd.openapi.controller;
 
 import com.gdsc.cmd.openapi.domain.Meal;
 import com.gdsc.cmd.openapi.domain.type.StatusEnum;
+import com.gdsc.cmd.openapi.dto.ReadMealsResponse;
 import com.gdsc.cmd.openapi.exception.Message;
 import com.gdsc.cmd.openapi.service.SchoolMealsOpenApiService;
 import com.gdsc.cmd.openapi.service.SendMealsService;
@@ -13,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/openapi/meals")
@@ -24,7 +26,8 @@ public class OpenApiController {
 
 
     @GetMapping("/{date}")
-    public List<Meal> sendMeal(@PathVariable String date){
+    public List<ReadMealsResponse> sendMeal(@PathVariable String date){
+
         return sendMealsService.sendMeals(date);
     }
 

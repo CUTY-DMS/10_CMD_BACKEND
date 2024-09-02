@@ -9,8 +9,7 @@ import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 
 
-@AllArgsConstructor
-@Getter
+
 public class NotificationListResponseDto {
 
     @NotEmpty

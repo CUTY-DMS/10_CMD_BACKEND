@@ -2,6 +2,7 @@ package com.gdsc.cmd.openapi.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -10,6 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
+@Getter
 public class Meal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
