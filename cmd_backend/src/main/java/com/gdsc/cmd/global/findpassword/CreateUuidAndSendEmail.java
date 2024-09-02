@@ -1,7 +1,6 @@
 package com.gdsc.cmd.global.findpassword;
-/*
+
 import com.gdsc.cmd.global.findpassword.dto.SendResetPasswordEmailRequest;
-import com.gdsc.cmd.global.findpassword.dto.SendResetPasswordEmailResponse;
 import com.gdsc.cmd.global.findpassword.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @RequiredArgsConstructor
 public class CreateUuidAndSendEmail {
+    /*
     private final UserService userService;
 
 
@@ -22,5 +22,5 @@ public class CreateUuidAndSendEmail {
 
     }
     )
-
+*/
 }

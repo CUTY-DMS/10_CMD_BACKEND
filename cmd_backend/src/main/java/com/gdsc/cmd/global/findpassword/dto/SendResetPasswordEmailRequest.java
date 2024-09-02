@@ -1,4 +1,4 @@
-/*package com.gdsc.cmd.global.findpassword.dto;
+package com.gdsc.cmd.global.findpassword.dto;
 
 import lombok.Getter;
 

@@ -1,9 +1,8 @@
 package com.gdsc.cmd.domain.notification.service;
 
 
-import com.gdsc.cmd.domain.notification.domain.Notification;
 import com.gdsc.cmd.domain.notification.domain.repository.NotificationRepositroy;
-import com.gdsc.cmd.domain.notification.dto.NotificationListResponseDto;
+import com.gdsc.cmd.domain.notification.dto.NotificationFindAllResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,11 +16,11 @@ public class NotificationFindAllService {
    private final NotificationRepositroy notificationRepositroy;
 
 
-   public List<NotificationListResponseDto> findAll(){
+   public List<NotificationFindAllResponse> findAll(){
 
        return notificationRepositroy.findAll()
                .stream()
-               .map(NotificationListResponseDto::new)
+               .map(NotificationFindAllResponse::new)
                .collect(Collectors.toList());
 
        /*

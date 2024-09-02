@@ -1,5 +1,5 @@
 package com.gdsc.cmd.global.findpassword.service;
-/*
+
 import com.gdsc.cmd.domain.user.domain.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
