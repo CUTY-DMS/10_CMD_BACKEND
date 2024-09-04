@@ -26,7 +26,7 @@ public class NotificationCreateService {
         Notification notification = Notification.builder()
                 .title(postDto.getTitle())
                 .content(postDto.getContent())
-                .writer(currentUser.toString())
+                .writer(currentUser.map(User::getAccountId).map(Object::toString).orElse("Unknown"))
                 .createdTime(LocalDate.now())
                         .build();
         notificationRepositroy.save(notification);

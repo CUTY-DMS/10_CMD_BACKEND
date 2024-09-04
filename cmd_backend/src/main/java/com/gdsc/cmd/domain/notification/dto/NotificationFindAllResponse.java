@@ -14,10 +14,19 @@ public class NotificationFindAllResponse {
     private String title;
 
     @NotEmpty
+    private String content;
+
+    @NotEmpty
+    private String writer;
+
+    @NotEmpty
     private LocalDate createdTime;
+
 
     public NotificationFindAllResponse(Notification notification) {
         this.title = notification.getTitle();
+        this.content = notification.getContent();
         this.createdTime = notification.getCreatedTime();
+        this.writer = notification.getWriter();
     }
 }

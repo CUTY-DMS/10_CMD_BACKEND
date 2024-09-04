@@ -20,7 +20,6 @@ public class LogoutService {
     private final UserFacade userFacade;
     private final RefreshTokenRepository refreshTokenRepository;
 
-    @Transactional
     public void execute() {
         Optional<User> user = userFacade.getCurrentUser();
         user = Optional.ofNullable(User.builder().

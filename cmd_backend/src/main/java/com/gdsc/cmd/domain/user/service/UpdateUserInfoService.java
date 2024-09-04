@@ -14,10 +14,11 @@ import java.util.Objects;
 
 @RequiredArgsConstructor
 @Service
+@Transactional
 public class UpdateUserInfoService { // put사용
     private final UserRepository userRepository;
     private final UserFacade userFacade;
-    @Transactional
+
     public void userInfoUpdate(String accountId, UserDetailRequest userDetailRequest) {
         User user = userRepository.findByAccountId(accountId).orElseThrow(() ->
                 new UsernameNotFoundException("User not found"));

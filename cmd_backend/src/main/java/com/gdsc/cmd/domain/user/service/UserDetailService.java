@@ -4,11 +4,13 @@ import com.gdsc.cmd.domain.user.controller.dto.response.UserDetailResponse;
 import com.gdsc.cmd.domain.user.domain.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 public class UserDetailService {
     private final UserRepository userRepository;
 

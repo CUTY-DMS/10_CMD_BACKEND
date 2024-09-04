@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/auth")
 @RequiredArgsConstructor
 public class AuthController {
+
     private final LoginService signInService;
     private final StudentSignUpService studentSignUpService;
     private final ReissueService reissueService;
@@ -26,7 +27,6 @@ public class AuthController {
     }
     @PostMapping("/signup")
     public TokenResponse signup(@RequestBody SignupRequest signupRequest) {
-
         return studentSignUpService.execute(signupRequest);
     }
 

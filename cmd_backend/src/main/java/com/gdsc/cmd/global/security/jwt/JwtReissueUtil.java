@@ -51,9 +51,9 @@ public class JwtReissueUtil { // 토큰 관리자
                     .parseClaimsJws(token)
                     .getBody();
         } catch (ExpiredJwtException e) {
-            throw new ExpiredImportTokenException("");//
+            throw new ExpiredImportTokenException("");
         } catch (Exception e) {
-            throw new ExpiredImportTokenException("");//
+            throw new ExpiredImportTokenException("");
         }
     }
 

@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@Getter @Setter
+@Getter
 @RequestMapping("/notification")
 @RequiredArgsConstructor
 public class NotificationController {
@@ -38,7 +38,6 @@ public class NotificationController {
     public NotificationFindResponseDto readNotification(@PathVariable("notificationId")Long needId){
          return notificationReadService.readNotification(needId);
     }
-
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PatchMapping("/{notificationId}")

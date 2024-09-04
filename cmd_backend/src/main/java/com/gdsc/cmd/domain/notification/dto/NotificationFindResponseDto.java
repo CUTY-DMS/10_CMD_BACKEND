@@ -7,7 +7,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class NotificationFindResponseDto {
-    private Long needId;
+    private Long notificationId;
     private String title;
     private String content;
 

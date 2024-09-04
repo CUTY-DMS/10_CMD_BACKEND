@@ -14,8 +14,4 @@ public class NotificationCreateRequestDto {
     @NotEmpty
     private String content;
 
-    @NotEmpty
-    private String account_id;
-
-
 }
