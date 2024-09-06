@@ -11,7 +11,7 @@ public class NotificationFindResponseDto {
     private String title;
     private String content;
 
-    public static NotificationFindResponseDto FindFromNotification(Notification notification) {
+    public static NotificationFindResponseDto from(Notification notification) {
         return new NotificationFindResponseDto(notification.getNotificationId(),
                                 notification.getTitle(),
                                 notification.getContent());

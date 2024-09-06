@@ -14,6 +14,6 @@ public class NotificationReadService {
 
     public NotificationFindResponseDto readNotification(Long notificationId){
         Notification notification = notificationFindById.findByNotificationId(notificationId);
-        return NotificationFindResponseDto.FindFromNotification(notification);
+        return NotificationFindResponseDto.from(notification);
     }
 }
