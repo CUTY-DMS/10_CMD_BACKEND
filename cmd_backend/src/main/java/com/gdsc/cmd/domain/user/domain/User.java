@@ -18,7 +18,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(columnDefinition = "VARCHAR(30)", name = "account_id")
+   @Column(columnDefinition = "VARCHAR(30)", name = "account_id")
     private String accountId;
 
     @Column(columnDefinition = "VARCHAR(60)")

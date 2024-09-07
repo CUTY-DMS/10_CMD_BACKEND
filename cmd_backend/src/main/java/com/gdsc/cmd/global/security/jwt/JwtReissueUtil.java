@@ -1,6 +1,7 @@
 package com.gdsc.cmd.global.security.jwt;
 
 import com.amazonaws.services.kms.model.ExpiredImportTokenException;
+import com.gdsc.cmd.global.exception.JwtExpiredException;
 import com.gdsc.cmd.global.security.TokenResponse;
 import com.gdsc.cmd.global.security.auth.AuthDetailsService;
 import io.jsonwebtoken.Claims;
@@ -50,14 +51,14 @@ public class JwtReissueUtil { // 토큰 관리자
                     .setSigningKey(jwtProperties.getSecretKey())
                     .parseClaimsJws(token)
                     .getBody();
-        } catch (ExpiredJwtException e) {
-            throw new ExpiredImportTokenException("");
         } catch (Exception e) {
-            throw new ExpiredImportTokenException("");
+            throw new JwtExpiredException();
         }
+
+
     }
 
-    private boolean isRefreshToken(String token) { // refresh 토큰인지 확인
+    private boolean isRefreshToken (String token) { // refresh 토큰인지 확인
         return getClaims(token).get("type").equals("refresh");
     }
 
