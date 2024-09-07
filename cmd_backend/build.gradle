@@ -69,8 +69,6 @@ dependencies {
 
 }
 
-
-
 jar {
     enabled = false
 }
