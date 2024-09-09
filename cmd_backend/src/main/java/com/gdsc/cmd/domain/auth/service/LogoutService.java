@@ -22,18 +22,9 @@ public class LogoutService {
 
     public void execute() {
         Optional<User> user = userFacade.getCurrentUser();
-        user = Optional.ofNullable(User.builder().
-                accountId(user.get().getAccountId()).
-                password(user.get().getPassword()).
-                email(user.get().getEmail()).
-                phonenumber(user.get().getPhonenumber()).
-                major(user.get().getMajor()).
-                birth(user.get().getBirth()).
-                classNumber(user.get().getClassNumber()).
-                build());
 
         RefreshToken refreshToken = refreshTokenRepository.findById(user.get().getAccountId())
-                .orElseThrow(() -> new RuntimeException(""));
+                .orElseThrow(() -> new RuntimeException("refresh token not found"));
 
         refreshTokenRepository.delete(refreshToken);
     }
